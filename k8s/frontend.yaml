@@ -1,0 +1,51 @@
+# frontend.yaml
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: word-to-pdf-frontend
+  namespace: word-to-pdf
+  labels:
+    app: word-to-pdf
+    tier: frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: word-to-pdf
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        app: word-to-pdf
+        tier: frontend
+    spec:
+      containers:
+        - name: frontend
+          image: devin864/word-to-pdf-frontend:latest
+          ports:
+            - containerPort: 3000
+          env:
+            - name: REACT_APP_BACKEND_URL
+              value: "http://word-to-pdf-backend-service.word-to-pdf.svc.cluster.local:5000"
+          # If your frontend requires additional environment variables, add them here
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: word-to-pdf-frontend-service
+  namespace: word-to-pdf
+  labels:
+    app: word-to-pdf
+    tier: frontend
+spec:
+  selector:
+    app: word-to-pdf
+    tier: frontend
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
+  type: LoadBalancer

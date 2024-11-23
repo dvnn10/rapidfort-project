@@ -1,0 +1,265 @@
+/* FileUpload.css */
+
+/* Reset basic styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Container */
+.container {
+  text-align: center;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Dark mode styles */
+.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+/* Mode toggle button */
+.mode-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: #ffffff;
+  border: 2px solid #cccccc;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dark-mode .mode-toggle {
+  background-color: #333333;
+  border-color: #666666;
+  color: #ffffff;
+}
+
+/* Header styles */
+.header h1 {
+  margin-top: 50px;
+  font-size: 36px;
+}
+
+.header p {
+  font-size: 18px;
+  color: #555555;
+}
+
+.dark-mode .header p {
+  color: #cccccc;
+}
+
+/* Upload box styles */
+.upload-box {
+  width: 80%;
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 40px;
+  border: 2px dashed #cccccc;
+  border-radius: 15px;
+  background-color: #f9f9f9;
+  position: relative;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .upload-box {
+  background-color: #222222;
+  border-color: #444444;
+}
+
+.upload-box input[type="file"] {
+  position: absolute;
+  left: -9999px;
+}
+
+/* Custom "Choose File" button */
+.custom-file-upload {
+  display: inline-block;
+  padding: 12px 25px;
+  margin-bottom: 30px;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.custom-file-upload:hover {
+  background-color: #0056b3;
+}
+
+.dark-mode .custom-file-upload {
+  background-color: #007bff;
+}
+
+.dark-mode .custom-file-upload:hover {
+  background-color: #0056b3;
+}
+
+/* Upload and Download button styles */
+.upload-button {
+  display: block;
+  width: 100%;
+  max-width: 200px;
+  margin: 0 auto;
+  padding: 15px;
+  font-size: 18px;
+  color: #ffffff;
+  background-color: #28a745;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.upload-button:hover {
+  background-color: #218838;
+}
+
+.dark-mode .upload-button {
+  background-color: #28a745;
+}
+
+.dark-mode .upload-button:hover {
+  background-color: #218838;
+}
+
+/* Password input field */
+.password-input {
+  width: 80%;
+  max-width: 400px;
+  padding: 12px 20px;
+  margin: 15px auto;
+  display: block;
+  border: 2px solid #cccccc;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.password-input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.dark-mode .password-input {
+  background-color: #333333;
+  color: #ffffff;
+  border-color: #555555;
+}
+
+.dark-mode .password-input:focus {
+  border-color: #007bff;
+}
+
+/* File name display */
+.file-name {
+  margin-top: 15px;
+  font-size: 16px;
+  color: #333;
+}
+
+.dark-mode .file-name {
+  color: #ccc;
+}
+
+/* Metadata section */
+.metadata-section {
+  margin-top: 30px;
+}
+
+.metadata-section h3 {
+  font-size: 24px;
+}
+
+.metadata-section p {
+  font-size: 18px;
+}
+
+/* Preview section */
+.preview-section {
+  width: 80%;
+  max-width: 800px;
+  margin: 30px auto;
+}
+
+.preview-section h3 {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.preview-section iframe {
+  border: 1px solid #cccccc;
+  border-radius: 10px;
+}
+
+.dark-mode .preview-section iframe {
+  border-color: #555555;
+}
+
+/* Download section */
+.download-section {
+  margin-top: 30px;
+}
+
+/* Reuse upload-button styles for download button */
+.download-section .upload-button {
+  background-color: #007bff;
+}
+
+.download-section .upload-button:hover {
+  background-color: #0056b3;
+}
+
+.dark-mode .download-section .upload-button {
+  background-color: #007bff;
+}
+
+.dark-mode .download-section .upload-button:hover {
+  background-color: #0056b3;
+}
+
+/* Center content and adjust layout */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Dark mode adjustments */
+.dark-mode .header h1,
+.dark-mode .metadata-section h3,
+.dark-mode .download-section button {
+  color: #ffffff;
+}
+
+.dark-mode .upload-box .upload-button {
+  background-color: #28a745;
+}
+
+.dark-mode .upload-box .upload-button:hover {
+  background-color: #218838;
+}
+
+.dark-mode .download-section button {
+  background-color: #007bff;
+}
+
+.dark-mode .download-section button:hover {
+  background-color: #0056b3;
+}

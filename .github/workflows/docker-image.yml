@@ -1,0 +1,56 @@
+# .github/workflows/docker-image.yml
+
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-push-backend:
+    name: Build and Push Backend Docker Image
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+
+      - name: Build Backend Docker Image
+        run: |
+          cd backend
+          docker build -t your-dockerhub-username/word-to-pdf-backend:latest .
+
+      - name: Push Backend Docker Image
+        run: |
+          docker push your-dockerhub-username/word-to-pdf-backend:latest
+
+  build-and-push-frontend:
+    name: Build and Push Frontend Docker Image
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+
+      - name: Build Frontend Docker Image
+        run: |
+          cd frontend/my-app
+          docker build -t your-dockerhub-username/word-to-pdf-frontend:latest .
+
+      - name: Push Frontend Docker Image
+        run: |
+          docker push your-dockerhub-username/word-to-pdf-frontend:latest

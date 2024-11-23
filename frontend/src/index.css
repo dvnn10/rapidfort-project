@@ -1,0 +1,136 @@
+/* General styles */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom, #e6f7ff, #b3e5fc); /* Light gradient background */
+  color: #333; /* Darker text for better readability */
+}
+
+/* Inner box styles */
+.container {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 500px;
+  margin: 50px auto; /* Center the box */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Header */
+h1 {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+h2 {
+  margin-top: 20px;
+}
+
+/* Description */
+p {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+/* Dashed file drop area */
+.upload-area {
+  border: 2px dashed #007bff;
+  border-radius: 8px;
+  padding: 30px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #007bff;
+  cursor: pointer;
+}
+
+/* File Upload Label */
+label.custom-file-upload {
+  background-color: #007bff;
+  color: white;
+  padding: 15px 30px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  display: inline-block;
+  cursor: pointer;
+  margin: 10px 0;
+  transition: background-color 0.3s ease;
+}
+
+label.custom-file-upload:hover {
+  background-color: #0056b3;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+/* Metadata and buttons */
+.file-metadata, iframe {
+  width: 100%;
+  margin-top: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #f9f9f9;
+  padding: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Upload and Download buttons */
+button, .btn-download {
+  background-color: #28a745;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 15px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 8px;
+  width: 100%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover, .btn-download:hover {
+  background-color: #218838;
+}
+
+/* PDF Preview */
+iframe {
+  border: none;
+  height: 500px;
+  margin-top: 20px;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+  background: #121212;
+  color: white;
+}
+
+body.dark-mode .container {
+  background: #2c3035;
+  color: white;
+}
+
+body.dark-mode .upload-area {
+  border-color: #007bff;
+  color: #007bff;
+}
+
+body.dark-mode label.custom-file-upload {
+  background-color: #007bff;
+  color: white;
+}
+
+body.dark-mode button, body.dark-mode .btn-download {
+  background-color: #1c7430;
+}

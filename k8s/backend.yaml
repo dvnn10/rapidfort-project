@@ -1,0 +1,60 @@
+# backend.yaml
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: word-to-pdf-backend
+  namespace: word-to-pdf
+  labels:
+    app: word-to-pdf
+    tier: backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: word-to-pdf
+      tier: backend
+  template:
+    metadata:
+      labels:
+        app: word-to-pdf
+        tier: backend
+    spec:
+      containers:
+        - name: backend
+          image: devin864/word-to-pdf-backend:latest
+          ports:
+            - containerPort: 5000
+          env:
+            - name: PORT
+              value: "5000"
+            - name: LIBREOFFICE_PATH
+              value: "/usr/bin/soffice" # Update based on container's OS and LibreOffice installation path
+            - name: QPDF_PATH
+              value: "/usr/bin/qpdf"      # Update based on container's OS and qpdf installation path
+          volumeMounts:
+            - name: uploads
+              mountPath: /uploads
+      volumes:
+        - name: uploads
+          emptyDir: {} # For persistent storage, replace with PersistentVolumeClaim
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: word-to-pdf-backend-service
+  namespace: word-to-pdf
+  labels:
+    app: word-to-pdf
+    tier: backend
+spec:
+  selector:
+    app: word-to-pdf
+    tier: backend
+  ports:
+    - protocol: TCP
+      port: 5000
+      targetPort: 5000
+  type: ClusterIP
