@@ -86,7 +86,7 @@ const FileUpload = () => {
 
   const handleDownload = () => {
     if (convertedFile) {
-      window.open(`https://word-to-pdf-backend-gs0i.onrender.com${convertedFile}`, "_blank");
+      window.open(`https://word-to-pdf-backend-gs0i.onrender.com/${convertedFile}`, "_blank");
     }
   };
 
@@ -152,7 +152,7 @@ const FileUpload = () => {
             <div className="preview-section">
               <h3>PDF Preview</h3>
               <iframe
-                src={`https://word-to-pdf-backend-gs0i.onrender.com${convertedFile}`}
+                src={`https://word-to-pdf-backend-gs0i.onrender.com/${convertedFile}`}
                 title="PDF Preview"
                 width="100%"
                 height="600px"
