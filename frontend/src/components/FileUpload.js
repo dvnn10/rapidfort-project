@@ -56,7 +56,7 @@ const FileUpload = () => {
     setErrorMessage("");
 
     try {
-      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/upload`, {
+      const response = await fetch(`https://word-to-pdf-backend-gs0i.onrender.com/upload`, {
         method: "POST",
         body: formData,
       });
@@ -86,7 +86,7 @@ const FileUpload = () => {
 
   const handleDownload = () => {
     if (convertedFile) {
-      window.open(`${process.env.REACT_APP_BACKEND_URL}${convertedFile}`, "_blank");
+      window.open(`https://word-to-pdf-backend-gs0i.onrender.com${convertedFile}`, "_blank");
     }
   };
 
@@ -152,7 +152,7 @@ const FileUpload = () => {
             <div className="preview-section">
               <h3>PDF Preview</h3>
               <iframe
-                src={`${process.env.REACT_APP_BACKEND_URL}${convertedFile}`}
+                src={`https://word-to-pdf-backend-gs0i.onrender.com${convertedFile}`}
                 title="PDF Preview"
                 width="100%"
                 height="600px"
