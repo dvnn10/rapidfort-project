@@ -17,7 +17,7 @@ const libreOfficePath = "/usr/bin/soffice"; // LibreOffice binary path
 
 // Middleware
 app.use(cors({
-  origin: 'http://localhost:3000', // Frontend origin
+  origin: '*', // Frontend origin
   optionsSuccessStatus: 200
 }));
 app.use(express.json());
